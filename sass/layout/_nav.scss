@@ -1,0 +1,130 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+.gnav {
+  &__nav {
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__link {
+    display: block;
+    padding: 10px;
+    color: $text-black-color;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.3em;
+    text-decoration: none;
+    transition: 0.3s ease-out;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__btn {
+    width: 214px;
+  }
+
+  &__btn-link {
+    display: block;
+    padding: 22px 0;
+    background: $yellow-color;
+    color: $text-white-color;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    transition: 0.3s ease-out;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__btn-line-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__btn-line--01,
+  &__btn-line--02 {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: $text-white-color;
+  }
+
+  &__btn-line--03,
+  &__btn-line--04 {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background: $text-white-color;
+  }
+
+  &__btn-line--01 {
+    top: 4px;
+  }
+
+  &__btn-line--02 {
+    bottom: 4px;
+  }
+
+  &__btn-line--03 {
+    left: 4px;
+  }
+
+  &__btn-line--04 {
+    right: 4px;
+  }
+}
+
+.back-btn {
+  cursor: pointer;
+  position: fixed;
+  left: 53px;
+  bottom: 29px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: $text-white-color;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease-out;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  &.isActive {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid $yellow-color;
+    border-right: 2px solid $yellow-color;
+  }
+}
